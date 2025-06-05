@@ -112,6 +112,27 @@ GET /api/history/all
     ]
 ```
 
+## 4. **🔄 Recarga de gift**
+
+POST /api/gif/refresh
+
+- Refrescar únicamente el GIF relacionado a un dato curioso sobre gatos previamente mostrado, sin cambiar el texto del dato (fact). 
+
+**📥 Cuerpo de la solicitud (application/json):**
+```bash
+    {
+        "catFact": "Cats sleep 70% of their lives."
+    }
+```
+
+**📤 Respuesta exitosa**
+```bash
+    {
+        "gifUrl": "https://media0.giphy.com/media/aMmiKP7Z4TquI/giphy.gif?cid=581e12b9jcvi5002ucdakaig5kpb1gwpcyt71cljvaq7g5dd&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+    }
+```
+
+
 ## 📝 Estructura de Base de Datos
 - Tabla: SearchHistories
 
@@ -145,5 +166,7 @@ Aplicar migración:
 dotnet ef database update
 ```
 
-# 👤 Autor
-## Desarrollado por theoliver413
+## 🧑‍💻 Autor
+- Oliver Borda
+- theoliver413
+- oliverborda04@outlook.com

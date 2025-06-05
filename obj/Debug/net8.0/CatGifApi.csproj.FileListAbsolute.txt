@@ -169,3 +169,4 @@ C:\Users\Lenovo\OneDrive\Escritorio\CatGifApi\obj\Debug\net8.0\refint\CatGifApi.
 C:\Users\Lenovo\OneDrive\Escritorio\CatGifApi\obj\Debug\net8.0\CatGifApi.pdb
 C:\Users\Lenovo\OneDrive\Escritorio\CatGifApi\obj\Debug\net8.0\CatGifApi.genruntimeconfig.cache
 C:\Users\Lenovo\OneDrive\Escritorio\CatGifApi\obj\Debug\net8.0\ref\CatGifApi.dll
+C:\Users\Lenovo\OneDrive\Escritorio\CatGifApi\obj\Debug\net8.0\CatGifApi.sourcelink.json

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CatGifApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e6768b188f9156b4ea279791c122c9c0f2e927f")]
 [assembly: System.Reflection.AssemblyProductAttribute("CatGifApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CatGifApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

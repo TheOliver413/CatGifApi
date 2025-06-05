@@ -28,12 +28,7 @@ namespace CatGifApi.Controllers
             var trimmedWords = query.Split(' ', StringSplitOptions.RemoveEmptyEntries).Take(3);
             var trimmedQuery = string.Join(" ", trimmedWords);
 
-            string apiKey = "voaNIOg1u7ONPbckzWK71C48YqCOkhVP";
-            string url = $"https://api.giphy.com/v1/gifs/search?api_key={apiKey}&q={Uri.EscapeDataString(trimmedQuery)}&limit=1";
-
-            var giphyResponse = await _http.GetFromJsonAsync<GiphyResponse>(url);
-            var gifData = giphyResponse?.data?.FirstOrDefault();
-            var gifUrl = gifData?.images?.original?.url ?? "";
+            var gifUrl = await GetGifUrl(trimmedQuery);
 
             var history = new SearchHistory
             {
@@ -54,6 +49,36 @@ namespace CatGifApi.Controllers
             });
         }
 
+        [HttpPost("refresh")]
+        public async Task<IActionResult> RefreshGif([FromBody] CatFactRequest request)
+        {
+            if (string.IsNullOrWhiteSpace(request.CatFact))
+                return BadRequest("CatFact is required.");
+
+            var words = request.CatFact.Split(' ', StringSplitOptions.RemoveEmptyEntries).Take(3);
+            var query = string.Join(" ", words);
+
+            try
+            {
+                var gifUrl = await GetGifUrl(query);
+                return Ok(new { gifUrl });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error retrieving GIF: {ex.Message}");
+            }
+        }
+
+        private async Task<string> GetGifUrl(string query)
+        {
+            string apiKey = "voaNIOg1u7ONPbckzWK71C48YqCOkhVP";
+            string url = $"https://api.giphy.com/v1/gifs/search?api_key={apiKey}&q={Uri.EscapeDataString(query)}&limit=1";
+
+            var giphyResponse = await _http.GetFromJsonAsync<GiphyResponse>(url);
+            var gifData = giphyResponse?.data?.FirstOrDefault();
+            return gifData?.images?.original?.url ?? "";
+        }
+
         public class GiphyResponse
         {
             public List<GifData>? data { get; set; }
@@ -72,6 +97,11 @@ namespace CatGifApi.Controllers
         public class GifOriginal
         {
             public string? url { get; set; }
+        }
+
+        public class CatFactRequest
+        {
+            public string CatFact { get; set; }
         }
     }
 }
