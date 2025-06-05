@@ -1,0 +1,6 @@
+@CatGifApi_HostAddress = http://localhost:5145
+
+GET {{CatGifApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
