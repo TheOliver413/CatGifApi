@@ -27,7 +27,7 @@ CatGifApi es una API REST construida con ASP.NET Core que permite buscar un GIF 
 1. **Clonar el repositorio**:
 
    ```bash
-   git clone https://github.com/tuusuario/CatGifApi.git
+   git clone https://github.com/TheOliver413/CatGifApi
    cd CatGifApi
 
 2. **Configurar la cadena de conexión en appsettings.json:**:
